@@ -128,10 +128,10 @@ This PHP class is meant to help you create and validate (serverside) web-forms i
 4. If page is posted => isset($_POST["submit"]).   
    Check if input is what you specified in $formFields => $form->validate()
 5.  Render form $form->render()  
-   This function return an array containing the form.  
+   This function return an array containing the form (including errors).  
    Each array has two indexes:  
    0 = fieldtype  
-   1 = fieldtype html code
+   1 = field html code
 6. If $form->validate() === true  
    $_POST var is cleaned up and contains only valid formfields.  
    Ready to send mail or store data in a database
