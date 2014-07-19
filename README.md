@@ -6,7 +6,7 @@ This PHP class is meant to help you create and validate (serverside) web-forms i
 ##How to use:
 
 1. Include form.php (the class itself)
-2. Set up an array which describes your form
+2. Set up an array which specifies your form
 			
 
 		$formFields = array(
@@ -133,5 +133,18 @@ This PHP class is meant to help you create and validate (serverside) web-forms i
    0 = fieldtype  
    1 = fieldtype html code
 6. If $form->validate() === true  
-   $_POST var is cleaned up and only contains valid formfields.  
+   $_POST var is cleaned up and contains only valid formfields.  
    Ready to send mail or store data in a database
+
+## Demo:
+The Demo folder contains a ready to use dummy form
+* Index.php
+* /css  
+   * bootstrap.min.css
+   * custom.css
+* /inc
+   * formView.php
+   * validView.php
+* /js
+   * bootstrap.min.js
+   * jquery-1.11.1.js
