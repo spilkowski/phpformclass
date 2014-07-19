@@ -124,7 +124,7 @@ This PHP class is meant to help you create and validate (serverside) web-forms i
 			)]								
 		);
 				
-3. Create new form object => $form = new Form();
+3. Create new form object => $form = new Form($formFields);
 4. If page is posted => isset($_POST["submit"]).   
    Check if input is what you specified in $formFields => $form->validate()
 5.  Render form $form->render()  
