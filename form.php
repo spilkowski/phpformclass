@@ -48,17 +48,22 @@ class Form{
 		$class .= isset($error) ? " ".$error."Error" : "";
 		if($type === "checkbox" || $type === "radio"){
 			$output = "<fieldset class='".$class."'>";
-			$output .= isset($args["label"]) ? "<legend>".$args["label"]."</legend>" : "";
+			$legend = isset($args["label"]) ? "<legend>".$args["label"]."</legend>" : "";
+			$output .= $legend;
+			$items = array();
 			foreach ($args["options"] as $option) {
 				$checked = (isset($args["value"]) && in_array($option["value"], $args["value"])) ? "checked='checked'" : "";
 				$req = ($type === "checkbox") ? "" : $req;
 				$selector = $type."_".$this->fields[$type];
-				$output .= "<label class='".$class."' for='".$selector."'>".$option["label"]."</label>
+				$item = "<label class='".$class."' for='".$selector."'>".$option["label"]."</label>
 							<input id='".$selector."' type='".$type."' name='".$args["name"]."[]' ".$checked." value='".$option["value"]."' ".$req.">";
+				$output .= $item;
 				$this->fields[$type]++;
+				array_push($items, $item);
 			}
 			$output .= "</fieldset>";
-			$data = array($type, $output);
+			$data = array($type, array("html" => $output, "items" => $items));
+			if( sizeof($legend) > 0) $data[1]["legend"] = $legend;
 		}elseif($type === "select"){
 			$opt = "";		
 			$selector = $type."_".$this->fields[$type];

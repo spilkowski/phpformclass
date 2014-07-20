@@ -8,9 +8,15 @@
 	foreach ($data as $item) {
 	#$item[0] => type of the formfield 
 	#$item[1] => formfiled html code
-	?>    
-		<div class="form-group"><?php print $item[1]; ?> </div>
-	<?php
+		if(!is_array($item[1])){
+		?>    
+			<div class="form-group"><?php print $item[1]; ?> </div>
+		<?php
+		}else{
+		?>
+			<div class="form-group"><?php print $item[1]["html"]; ?> </div>
+		<?php
+		}
 	}
 
 ?>
